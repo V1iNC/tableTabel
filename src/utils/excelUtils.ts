@@ -1,21 +1,6 @@
 import { read, utils, writeFile } from 'xlsx';
 import { Employee, AttendanceRecord } from '../types';
 
-// Генератор Excel-колонок: A, B, ..., Z, AA, AB, ...
-const generateExcelColumns = (count: number): string[] => {
-  const columns: string[] = [];
-  for (let i = 0; i < count; i++) {
-    let col = '';
-    let x = i;
-    while (x >= 0) {
-      col = String.fromCharCode((x % 26) + 65) + col;
-      x = Math.floor(x / 26) - 1;
-    }
-    columns.push(col);
-  }
-  return columns;
-};
-
 interface ExcelRow {
   [key: string]: string | number;
 }
